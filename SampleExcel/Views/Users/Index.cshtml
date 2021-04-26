@@ -1,0 +1,37 @@
+@model List<SampleExcel.Models.User>
+
+<div class="row">
+    <div class="col-md-6">
+        <a asp-action="ExportToExcel" asp-controller="Users" class="btn btn-primary">
+            Export to Excel
+        </a>
+    </div>
+    <div class="col-md-6">
+        <a asp-action="BatchUserUpload" asp-controller="Users" class="btn btn-primary">
+            Import from Excel
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Email</td>
+                    <td>Name</td>
+                    <td>Phone</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.Email</td>
+                        <td>@user.Name</td>
+                        <td>@user.Phone</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
